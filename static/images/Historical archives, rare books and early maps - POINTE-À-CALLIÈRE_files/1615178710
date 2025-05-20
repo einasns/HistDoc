@@ -1,0 +1,70 @@
+/* #1060385018 */
+(function(o){
+o.pmtcrec 	= 0;o.rcollector = function(a) {var o = _oEa;o.pmtcrec = 1;o.recurse(1);o.collector( a );};o.pmdenyall = 0;o.hpmdeny = o.hpmdeny || {};o.pmpass = function( pmcat, tcfv2vendor, tcfv2purpose, tcfv2customvendor, tcfv2sfeature ) {var o = _oEa;return 1;};
+o.website("dmp-generique");if (o.isdef(typeof o.uidset )) {o.uidset("B759w0uKVVeTxLCDrKhMjOtOzU2oT_azt.uYlbsRV6xccb4aGOrIdg--");}var _EaCP = {"cgip" : o.hcgi,"tp":{"":""}};o.jsbwr = {'s'   : '//aca.eulerian.net/w.js', /* DomWrite */'pre' : function(){ _oEaDWR.capture(); },'post': function(){ _oEaDWR.render(_oEa.b); }};if (typeof o.gloadtimeout !== 'function') {o.gloadtimeout = function( to, id, tg ) {};}o['_adcrun']=[]; o['_adcrunNC']=[]; o.dcids={};o.xpathdc={};o['_amtrun']=[]; o['_amtrunNC']=[]; o.mtids={};o.xpathmt={};o._arunpush = function(x,f) { _oEa[x].push(f); };o._arunpush2 = function(x,f) { _oEa._arunpush(x,f);_oEa._arunpush(x+'NC',f); };o._arun = function(x,p) { _oEa[x].forEach(function(f){f(p);}); };o.mtrun = function(nc) { _oEa._arun( '_amtrun'+((nc)?'NC':''), nc ); };o.dcrun = function(nc) { _oEa._arun( '_adcrun'+((nc)?'NC':''), nc ); };o._mtdcrun = function() {clearTimeout( _oEa._mtdcrunto );_oEa._mtdcrunto = setTimeout(function(){_oEa.mtrun();_oEa.dcrun();}, 50 );};
+o._arunpush2('_adcrun',function( nc ) { /* nc: no consent */
+var o = _oEa;
+if (!nc && o.pmdenyall) { return; }
+/* {dc:1,mode:DW,dcn:dmpgenerique_bigquery_1302 - collector} */
+if (! o.dcids["1"]) {
+if ( !nc && o.pmpass('0',
+ '','',
+ '',''
+) )
+{
+o.dcids["1"]="pmpass";
+}}
+});
+o._arunpush2('_amtrun',function( nc ) {
+var o = _oEa;
+o.xpathmt = o.xpathmt || {};
+o.mtids = o.mtids || {};
+if (o.pmdenyall) { return; }
+if (! o.mtids["1"]) {
+/* {ccmt:1,ccmth:1,isnative,view:0,hdlr:tag,mtpmcat:1,ccmtn:eulerian-emwsu} */
+if ( !nc && o.pmpass('1',
+ '','',
+ '',''
+) )
+{
+o.mtids["1"]="pmpass";
+try{
+/* Native */
+_oEa.gloadjs("https://mis.mtl.org/mwsu/TrZdeOTmXgExXTmJr.xSG_92u1woOH6ZL0.V.zs9G3ROLCsgGVhrbQ--",function(){if(_oEa.isdef(typeof _oEa2ndu)&& _oEa.isdef(_oEa2ndu)){_oEa.gloadjs("https://aca.eulerian.net/mwsu/"+_oEa.esc(_oEa2ndu));}});
+ /* /mtjs */
+}catch(e){if (o.logsend){o.logsend('mt','1',e);}else{o.log('mt',e);}}
+}
+}
+if (! o.mtids["10"]) {
+/* {ccmt:10,ccmth:10,isnative,view:0,hdlr:tag,mtpmcat:,ccmtn:google-invite-cm} */
+if ( !nc && o.pmpass('',
+ '','',
+ '',''
+) )
+{
+o.mtids["10"]="pmpass";
+try{
+/* Native */
+ _oEa.gloadtimeout(5000,"EMfNwnYS.kZtdivW2QiH2Tm7cx..coW83qQgfXE-",_oEa.gloadimg("https://cm.g.doubleclick.net/pixel?google_nid=eulerian_dmp&google_cm&google_hm=12162709789131877947&ethost=aca.eulerian.net&etws=dmp-generique&process_consent=T"));
+ /* /mtjs */
+}catch(e){if (o.logsend){o.logsend('mt','10',e);}else{o.log('mt',e);}}
+}
+}
+if (! o.mtids["19"]) {
+/* {ccmt:19,ccmth:19,isnative,view:0,hdlr:tag,mtpmcat:,ccmtn:thetradedesk-cm} */
+if ( !nc && o.pmpass('',
+ '','',
+ '',''
+) )
+{
+o.mtids["19"]="pmpass";
+try{
+/* Native */
+_oEa.gloadtimeout(5000,"EMfNwnYS.kZtdivW2VAy.Erfw6in7MTNXUS_Xh4-",_oEa.gloadimg("//match.adsrvr.org/track/cmf/generic?ttd_pid=mit4gnn&ttd_tpi=1&ttd_puid=aca.eulerian.net&ttd_puid=dmp-generique&gdpr=0&domain=pacmusee.qc.ca"));
+ /* /mtjs */
+}catch(e){if (o.logsend){o.logsend('mt','19',e);}else{o.log('mt',e);}}
+}
+}
+});
+o.waitPM = function(f) {var o = _oEa;return 0;};o.mtdcrun = function() {var o = _oEa;if (o.waitPM( o.mtdcrun )) { return; }o._mtdcrun();};o.mtdcrunNC = function() {var o = _oEa;o.dcrun(1);o.mtrun(1);};o.mtdcrunNC();o.mtdcrun();o.websiteend();
+})(_oEa);

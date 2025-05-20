@@ -1,0 +1,4 @@
+# Project exclude paths
+/frontend/dist/
+/env/
+/venv/

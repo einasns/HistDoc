@@ -4,11 +4,19 @@ from django.core.validators import FileExtensionValidator
 
 # Model for Python script files uploaded by developers
 class DeveloperFile(models.Model):
+    CATEGORY_CHOICES = [
+        ('binarization', 'binarization'),
+        ('Page layout', 'Page Layout'),
+        ('HTR', 'HTR (Handwritten Text Recognition)'),
+        ('Date & Style Classification', 'Date & Style Classification'),
+    ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # The developer who uploaded the file
     file = models.FileField(upload_to='researcher_files/')  # Path to the uploaded model file (.py)
     uploaded_at = models.DateTimeField(auto_now_add=True)  # Timestamp when file was uploaded
     name = models.CharField(max_length=100, blank=True)  # Optional name for the model
     description = models.TextField(blank=True)  # Optional description of the model purpose
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='binarization')
+
 
 # Model for parameters that a DeveloperFile (model) can accept
 class DeveloperParameter(models.Model):

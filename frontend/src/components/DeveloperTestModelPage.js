@@ -84,7 +84,7 @@ const DeveloperTestModelPage = () => {
       <NavbarDev />
 <div style={{
   minHeight: "100vh",
-  background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
   paddingTop: "100px",
   paddingBottom: "60px",
   display: "flex",
@@ -99,7 +99,7 @@ const DeveloperTestModelPage = () => {
     padding: "30px",
     boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
   }}>
-        <h2 style={{ color: "#007f3f" }}>🧪 Test Model: {model?.name}</h2>
+        <h2 style={{ color: "#2f5d5b" }}>🧪 Test Model: {model?.name}</h2>
 
         {model && (
           <p style={{ fontStyle: "italic", color: "#555" }}>
@@ -146,7 +146,7 @@ const DeveloperTestModelPage = () => {
 
         <button
           onClick={handleRunTest}
-          style={{ padding: "10px 20px", backgroundColor: "#007f3f", color: "white", border: "none", borderRadius: "5px" }}
+          style={{ padding: "10px 20px", backgroundColor: "#2f5d5b", color: "white", border: "none", borderRadius: "5px" }}
         >
           ⚙️ Run Test
         </button>

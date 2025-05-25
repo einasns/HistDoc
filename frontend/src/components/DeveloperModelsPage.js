@@ -98,7 +98,7 @@ export default class DeveloperModelsPage extends Component {
         <div
           style={{
             minHeight: "100vh",
-            background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             paddingBottom: "100px",
             position: "relative",
           }}
@@ -134,7 +134,7 @@ export default class DeveloperModelsPage extends Component {
                     boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
                   }}
                 >
-                  <p style={{ fontWeight: "bold", marginBottom: "5px", color: "#007f3f" }}>
+                  <p style={{ fontWeight: "bold", marginBottom: "5px", color: "#2f5d5b" }}>
                     {model.name}
                   </p>
                   <p style={{ marginBottom: "8px", color: "#333" }}>
@@ -148,7 +148,7 @@ export default class DeveloperModelsPage extends Component {
                       to={`/developer-feedbacks?model_id=${model.id}`}
                       style={{
                         textDecoration: "none",
-                        backgroundColor: "#007f3f",
+                        backgroundColor: "#2f5d5b",
                         color: "white",
                         padding: "5px 10px",
                         borderRadius: "5px",
@@ -162,7 +162,7 @@ export default class DeveloperModelsPage extends Component {
                       to={`/developer-test-model?model_id=${model.id}`}
                       style={{
                         textDecoration: "none",
-                        backgroundColor: "#005a2f",
+                        backgroundColor: "#2f5d5b",
                         color: "white",
                         padding: "5px 10px",
                         borderRadius: "5px",
@@ -237,7 +237,7 @@ export default class DeveloperModelsPage extends Component {
               position: "fixed",
               bottom: "30px",
               right: "30px",
-              backgroundColor: "#007f3f",
+              backgroundColor: "#2f5d5b",
               color: "white",
               fontSize: "30px",
               padding: "15px",

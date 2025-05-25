@@ -1,92 +1,75 @@
 import React from "react";
-import Navbar from "./Navbar"; // Import Navbar
+import Navbar from "./Navbar";
 
 const AboutUs = () => {
   return (
     <>
-      {/* Add Navbar */}
       <Navbar />
 
-      {/* Main Content */}
-     <div
-  style={{
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
-  }}
->
-         <div
-             style={{
-                 maxWidth: "800px",
-                 backgroundColor: "white",
-                 borderRadius: "15px",
-                 boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-                 fontFamily: "'Open Sans', sans-serif",
-                 padding: "20px",
-                 marginTop: "100px"
-             }}
-         >
-             <h2
-                 style={{
-                     textAlign: "center",
-                     color: "#007f3f",
-                     marginBottom: "20px",
-                     fontFamily: "'Handlee', cursive",
-                 }}
-             >
-                 About Us
-             </h2>
-             <p
-                 style={{
-                     color: "#333",
-                     lineHeight: "1.6",
-                     textAlign: "justify",
-                     fontSize: "1rem",
-                     padding: "10px",
-                 }}
-             >
-                 Welcome to <strong>ImageTextReader</strong>! We are dedicated to
-                 making your life easier by providing a powerful and intuitive
-                 platform for extracting text from images. Whether you’re dealing
-                 with scanned documents, handwritten notes, or any other image-based
-                 text, our platform is here to help.
-             </p>
-             <p
-                 style={{
-                     color: "#333",
-                     lineHeight: "1.6",
-                     textAlign: "justify",
-                     fontSize: "1rem",
-                     padding: "10px",
-                 }}
-             >
-                 As a researcher on HIST DOC, your journey begins by creating folders
-                 to organize manuscript images. Once uploaded, these images can be
-                 browsed in a clean, book-like view. To ensure accurate analysis,
-                 you can upload XML ground truth files — each XML must match the
-                 name of an image to maintain a clear connection. You can also rename
-                 and delete both images and XML files with full control. When testing models,
-                 simply select one from the available list, configure its parameters, and run it.
-                 The platform will display the original image and the processed result side by side.
-                 After testing, you’re invited to submit feedback and rate the model to help
-                 guide future improvements. Everything is built to give you full flexibility
-                 with an intuitive experience.
-             </p>
-             <p
-                 style={{
-                     color: "#007f3f",
-                     fontWeight: "bold",
-                     textAlign: "center",
-                     marginTop: "20px",
-                 }}
-             >
-                 Thank you for choosing ImageTextReader. Let us turn your images into
-                 words!
-             </p>
-         </div>
-     </div>
+      <div
+        style={{
+          minHeight: "100vh",
+          padding: "100px 20px",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
+          fontFamily: "'Segoe UI', sans-serif",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1000px",
+            margin: "0 auto",
+            backgroundColor: "white",
+            borderRadius: "15px",
+            padding: "5px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          }}
+        >
+          {/* Section: General About */}
+          <div className="section-heading" style={{ textAlign: "center", marginBottom: "10px" }}>
+            <h2 style={{ fontSize: "30px", marginBottom: "5px" }}>
+              Preserving History with Technology
+            </h2>
+            <p style={{ fontSize: "18px", color: "#444", lineHeight: "1.6" }}>
+              Our platform bridges the gap between developers and researchers. It enables developers
+              to upload AI models and allows researchers to apply these models to historical
+              manuscripts. Together, we aim to preserve and analyze valuable historical documents
+              using modern technology.
+            </p>
+          </div>
+
+          {/* Section: Researcher Functionality */}
+          <div style={{ marginTop: "10px" }}>
+            <h3 style={{ fontSize: "26px", color: "#007f3f", marginBottom: "10px" }}>
+              Tools for Researchers
+            </h3>
+            <p style={{ fontSize: "17px", lineHeight: "1.7", color: "#333" }}>
+              As a researcher on the HIST DOC platform, you can upload manuscript images or ZIP
+              archives organized into folders. These images can be browsed in a book-like interface.
+              <br /><br />
+              You can also upload XML ground-truth files to match image files for better comparison.
+              All files are manageable — you can rename, delete, and organize them freely. When testing
+              models, simply select one, configure its parameters, and view results side-by-side with
+              the original image.
+              <br /><br />
+              After completing the test, you are invited to submit feedback and rate the model to help
+              improve future development.
+            </p>
+          </div>
+
+          {/* Footer */}
+          <p
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              fontWeight: "bold",
+              fontSize: "18px",
+              color: "#007f3f",
+            }}
+          >
+            This project was developed by Einas Nasasra and Haneen Abu Salook .
+          </p>
+        </div>
+      </div>
     </>
   );
 };

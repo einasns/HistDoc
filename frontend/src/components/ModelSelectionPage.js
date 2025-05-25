@@ -27,6 +27,8 @@ const ModelSelectionPage = () => {
   const [models, setModels] = useState([]);
   const [selectedModelId, setSelectedModelId] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
+const [categories, setCategories] = useState([]);
+const [selectedCategory, setSelectedCategory] = useState("");
 
   const [parameters, setParameters] = useState([]);
   const [parameterValues, setParameterValues] = useState({});
@@ -35,32 +37,37 @@ const ModelSelectionPage = () => {
   const [zoomInput, setZoomInput] = useState(1);
   const [zoomOutput, setZoomOutput] = useState(1);
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/list_all_developer_models/", { credentials: "include" })
-      .then((res) => res.json())
-      .then((data) => setModels(data));
+ useEffect(() => {
+  fetch("http://127.0.0.1:8000/api/list_all_developer_models/", { credentials: "include" })
+    .then((res) => res.json())
+    .then((data) => {
+      setModels(data);
+      const uniqueCategories = [...new Set(data.map((m) => m.category).filter(Boolean))];
+      setCategories(uniqueCategories);
+    });
 
-    fetch(`http://127.0.0.1:8000/api/get-manuscript-file/${fileId}/`, { credentials: "include" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.file) {
-          const fileName = data.file.split("/").pop();
-          const imageUrl = `http://127.0.0.1:8000/api/media/${fileName}`;
-          setImagePreview(imageUrl);
+  fetch(`http://127.0.0.1:8000/api/get-manuscript-file/${fileId}/`, { credentials: "include" })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.file) {
+        const fileName = data.file.split("/").pop();
+        const imageUrl = `http://127.0.0.1:8000/api/media/${fileName}`;
+        setImagePreview(imageUrl);
 
-          const resultPath = `http://127.0.0.1:8000/api/media/processed/image_${fileId}_bin.png`;
-          fetch(resultPath, { method: "HEAD" })
-            .then((res) => {
-              if (res.status === 200) {
-                setResultImage(resultPath);
-              } else {
-                setResultImage(null);
-              }
-            })
-            .catch((err) => console.error("HEAD check failed:", err));
-        }
-      });
-  }, [fileId]);
+        const resultPath = `http://127.0.0.1:8000/api/media/processed/image_${fileId}_bin.png`;
+        fetch(resultPath, { method: "HEAD" })
+          .then((res) => {
+            if (res.status === 200) {
+              setResultImage(resultPath);
+            } else {
+              setResultImage(null);
+            }
+          })
+          .catch((err) => console.error("HEAD check failed:", err));
+      }
+    });
+}, [fileId]);
+
 
  useEffect(() => {
   if (selectedModelId) {
@@ -125,7 +132,7 @@ const handleRunModel = () => {
         style={{
           padding: "80px 20px",
           fontFamily: "Arial",
-          background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
         }}>
         <div
           style={{
@@ -136,93 +143,138 @@ const handleRunModel = () => {
             borderRadius: "15px",
             boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
           }}>
-          <h2 style={{ color: "#007f3f" }}>🧠 Select Model to Run on File #{fileId}</h2>
+          <h2 style={{ color: "#2f5d5b" }}>Run Model on Your File </h2>
 
-          <div style={{ marginBottom: "30px" }}>
-            <label style={{ fontWeight: "bold" }}>Choose a Model:</label><br />
-            <select
-              onChange={(e) => setSelectedModelId(e.target.value)}
-              value={selectedModelId || ""}
-              style={{ marginBottom: "20px", padding: "10px", width: "300px" }}>
-              <option value="">-- Choose a Model --</option>
-              {models.map((model) => (
-                <option key={model.id} value={model.id}>
-                  {model.name}
-                </option>
-              ))}
-            </select>
-{selectedModel && (
-    <p style={{ fontStyle: "italic", color: "#444", marginBottom: "20px" }}>
-      <strong>Description:</strong> {selectedModel.description || "No description provided."}
-    </p>
-  )}
+            <div style={{marginBottom: "30px"}}>
+                <label style={{fontSize: '22px',fontWeight: "bold"}}>Category :</label><br/>
+                <select
+                    value={selectedCategory}
+                    onChange={(e) => {
+                        setSelectedCategory(e.target.value);
+                        setSelectedModelId(null);  // clear model on category change
+                    }}
+                    style={{
+                        marginBottom: "20px",
+                        padding: "12px",
+                        width: "100%",
+                        fontSize: "16px",
+                        border: "2px solid #007f3f",
+                        borderRadius: "6px",
+                    }}
+                >
+                    <option value=""> All Categories </option>
+                    {categories.map((cat, i) => (
+                        <option key={i} value={cat}>
+                            {cat}
+                        </option>
+                    ))}
+                </select>
 
-            {parameters.length > 0 && (
-              <div style={{ marginBottom: 20 }}>
-                <h4 style={{ marginBottom: 10 }}>🔧 Parameters:</h4>
-                {parameters.map((param) => (
-                  <div key={param.name} style={{ marginBottom: 10 }}>
-<label>
-  <strong >{param.name}:</strong>
-  {param.description && (
-    <span style={{ fontStyle: "italic", color: "#555", marginLeft: "10px" }}>
+                <label style={{fontSize :"18px",fontWeight: "bold"}}>Choose a Model by category:</label><br/>
+                <select
+                    onChange={(e) => setSelectedModelId(e.target.value)}
+                    value={selectedModelId || ""}
+                    style={{
+                        marginBottom: "20px",
+                        padding: "12px",
+                        width: "100%",
+                        fontSize: "16px",
+                        border: "2px solid #007f3f",
+                        borderRadius: "6px",
+                    }}>
+                    <option value="">Choose </option>
+                    {models
+                      .filter((model) => !selectedCategory || model.category === selectedCategory)
+                      .map((model) => (
+                        <option key={model.id} value={model.id}>
+                            {""}{model.name}
+                        </option>
+                    ))}
+                </select>
+
+                {selectedModel && (
+                    <p style={{fontSize :"20px",fontStyle: "italic", color: "#444", marginBottom: "20px"}}>
+                        <strong>Description:</strong> {selectedModel.description || "No description provided."}
+                    </p>
+                )}
+
+                {parameters.length > 0 && (
+                    <div style={{marginBottom: 20}}>
+                        <h4 style={{marginBottom: 10}}>🔧 Parametersss:</h4>
+                        {parameters.map((param) => (
+                            <div key={param.name} style={{marginBottom: 10}}>
+                                <label>
+                                    <strong>{param.name}:</strong>
+                                    {param.description && (
+                                        <span style={{fontStyle: "italic", color: "#555", marginLeft: "10px"}}>
       ({param.description})
     </span>
-  )}
-</label>
-                      <br/>
-                {Array.isArray(param.choices) && param.choices.length > 0 ? (
-                      <select
-                        value={parameterValues[param.name] || ""}
-                        onChange={(e) =>
-                          setParameterValues({
-                            ...parameterValues,
-                            [param.name]: e.target.value,
-                          })
-                        }
-                        style={{ marginLeft: 10 }}
-                      >
-                        <option value="">-- Select --</option>
-                        {param.choices.map((choice, idx) => (
-                          <option key={idx} value={choice}>{choice}</option>
+                                    )}
+                                </label>
+                                <br/>
+                                {Array.isArray(param.choices) && param.choices.length > 0 ? (
+                                    <select
+                                        value={parameterValues[param.name] || ""}
+                                        onChange={(e) =>
+                                            setParameterValues({
+                                                ...parameterValues,
+                                                [param.name]: e.target.value,
+                                            })
+                                        }
+                                        style={{marginLeft: 10}}
+                                    >
+                                        <option value="">-- Select --</option>
+                                        {param.choices.map((choice, idx) => (
+                                            <option key={idx} value={choice}>{choice}</option>
+                                        ))}
+                                    </select>
+                                ) : (
+                                    <input
+                                        type="text"
+                                        value={parameterValues[param.name] || ""}
+                                        onChange={(e) =>
+                                            setParameterValues({
+                                                ...parameterValues,
+                                                [param.name]: e.target.value,
+                                            })
+                                        }
+                                        style={{marginLeft: 10}}
+                                    />
+                                )}
+                            </div>
                         ))}
-                      </select>
-                    ) : (
-                      <input
-                        type="text"
-                        value={parameterValues[param.name] || ""}
-                        onChange={(e) =>
-                          setParameterValues({
-                            ...parameterValues,
-                            [param.name]: e.target.value,
-                          })
-                        }
-                        style={{ marginLeft: 10 }}
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+                    </div>
+                )}
 
-            <button
-              onClick={handleRunModel}
-              style={{ padding: "10px 20px", backgroundColor: "#007f3f", color: "white", border: "none", borderRadius: "5px" }}>
-              ⚙️ Run Model
-            </button>
-          </div>
+                <button
+                    onClick={handleRunModel}
+                    style={{
+                        padding: "12px 24px",
+                        backgroundColor: "#2f5d5b",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "6px",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        marginTop: "20px",
+                        cursor: "pointer"
+                    }}>
+                    ⚙️ Run Model
+                </button>
 
-          <div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
-            {imagePreview && (
-              <div>
-                <p><strong>📄 Original Image:</strong></p>
-                <img
-                  src={imagePreview}
-                  alt="Original"
-                  style={{ maxWidth: `${300 * zoomInput}px`, borderRadius: "8px" }}
-                /><br />
-                <button onClick={() => setZoomInput((z) => Math.min(z + 0.1, 3))}>➕ Zoom In</button>
-                <button onClick={() => setZoomInput((z) => Math.max(z - 0.1, 0.5))}>➖ Zoom Out</button>
+            </div>
+
+            <div style={{display: "flex", gap: "40px", flexWrap: "wrap"}}>
+                {imagePreview && (
+                    <div>
+                        <p><strong>📄 Original Image:</strong></p>
+                        <img
+                            src={imagePreview}
+                            alt="Original"
+                            style={{maxWidth: `${300 * zoomInput}px`, borderRadius: "8px"}}
+                        /><br/>
+                        <button onClick={() => setZoomInput((z) => Math.min(z + 0.1, 3))}>➕ Zoom In</button>
+                        <button onClick={() => setZoomInput((z) => Math.max(z - 0.1, 0.5))}>➖ Zoom Out</button>
               </div>
             )}
 
@@ -243,12 +295,12 @@ const handleRunModel = () => {
           <div style={{ marginTop: "40px" }}>
             <Link
               to={`/ManuscriptFilesPage?id=${manuscriptId}`}
-              style={{ textDecoration: "none", color: "#007f3f", fontWeight: "bold" }}>
+              style={{ textDecoration: "none", color: "#2f5d5b", fontWeight: "bold" }}>
               ← Back to Manuscript Files
             </Link>
           </div>
            <Link to={`/feedback/${selectedModelId}`}>
-  <button style={{ backgroundColor: "#007f3f", color: "white", padding: "5px 10px", borderRadius: "5px", border: "none", cursor: "pointer", fontSize: "0.8rem" }}>
+  <button style={{ backgroundColor: "#2f5d5b", color: "white", padding: "5px 10px", borderRadius: "5px", border: "none", cursor: "pointer", fontSize: "0.8rem" }}>
     Feedback
   </button>
 </Link>

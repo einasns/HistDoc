@@ -170,7 +170,7 @@ fetch("http://127.0.0.1:8000/api/all-developer-models/", {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             padding: "2rem",
           }}
         >

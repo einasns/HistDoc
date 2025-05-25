@@ -29,7 +29,7 @@ export default function AllModelsFeedbackSummary() {
   return (
     <>
       <NavbarDev />
-      <div style={{ padding: "80px 20px",  background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)"
+      <div style={{ padding: "80px 20px",           background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)"
 , minHeight: "100vh", color: "#fff" }}>
         {data.map((model) => (
           <div
@@ -45,7 +45,7 @@ export default function AllModelsFeedbackSummary() {
             }}
           >
 
-            <h3 style={{ color: "#007f3f" }}>{model.model_name.split("/").pop()}</h3>
+            <h3 style={{ color: "#2f5d5b" }}>{model.model_name.split("/").pop()}</h3>
             <p>⭐ Average Rating: <strong>{model.average_rating ?? "No ratings yet"}</strong></p>
             {model.latest_feedbacks.length > 0 ? (
               model.latest_feedbacks.map(fb => (

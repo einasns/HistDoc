@@ -74,11 +74,11 @@ const history = useHistory();
         style={{
           minHeight: "100vh",
           padding: "100px 2rem 2rem",
-          background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
         }}
       >
         <div style={{ maxWidth: "900px", background: "white", padding: 30, borderRadius: 10, margin: "auto" }}>
-          <h2 style={{ color: "#007f3f" }}>⚙ Edit Model Parameters</h2>
+          <h2 style={{ color: "#2f5d5b" }}>⚙ Edit Model Parameters</h2>
 
           {parameters.map((param, index) => (
               <div
@@ -152,7 +152,7 @@ const history = useHistory();
               onClick={addParameter}
               style={{
                 marginTop: 20,
-                backgroundColor: "#007f3f",
+                backgroundColor: "#2f5d5b",
                 color: "white",
                 padding: "8px 15px",
                 border: "none",
@@ -164,7 +164,7 @@ const history = useHistory();
 
           <button
             onClick={saveParameters}
-            style={{ marginTop: 20, marginLeft: 10, backgroundColor: "#005a2f", color: "white", padding: "8px 15px", border: "none", borderRadius: 6 }}
+            style={{ marginTop: 20, marginLeft: 10, backgroundColor: "#2f5d5b", color: "white", padding: "8px 15px", border: "none", borderRadius: 6 }}
           >
             💾 Save
           </button>

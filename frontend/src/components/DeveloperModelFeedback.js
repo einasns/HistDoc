@@ -52,7 +52,7 @@ export default class DeveloperModelFeedback extends Component {
                   borderRadius: "10px",
                   padding: "15px",
                   marginBottom: "15px",
-                  background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)", // light green background
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
                   boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
               }}
 

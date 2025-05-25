@@ -61,10 +61,12 @@ history.push("/developer-models");
   return (
     <>
       <NavbarDev />
-      <div style={{ padding: "100px 20px",        background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+      <div style={{ padding: "100px 20px",
+          background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
+
  minHeight: "100vh" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", background: "white", padding: "20px", borderRadius: "10px" }}>
-          <h2 style={{ color: "#007f3f" }}>📝 Annotate Model #{modelId}</h2>
+          <h2 style={{ color: "#2f5d5b" }}>📝 Annotate Model #{modelId}</h2>
           {loading ? (
             <p>Loading...</p>
           ) : (
@@ -78,7 +80,7 @@ history.push("/developer-models");
               <br />
               <button
                 onClick={handleSave}
-                style={{ marginTop: "10px", padding: "10px 20px", backgroundColor: "#007f3f", color: "white", border: "none", borderRadius: "5px" }}
+                style={{ marginTop: "10px", padding: "10px 20px", backgroundColor: "#2f5d5b", color: "white", border: "none", borderRadius: "5px" }}
               >
                 💾 Save Changes
               </button>

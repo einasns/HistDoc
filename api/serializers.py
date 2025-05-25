@@ -27,7 +27,7 @@ class DeveloperFileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DeveloperFile
-        fields = ['id', 'file', 'user','uploaded_at','description','name', 'parameters']
+        fields = ['id', 'file', 'user','uploaded_at','description','name', 'parameters','category']
         read_only_fields = ['user']
 # serializers.py
 # serializers.py

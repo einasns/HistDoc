@@ -57,10 +57,10 @@ history.goBack();  // go back
       <div style={{
         minHeight: "100vh",
         padding: "80px 20px",
-        background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
       }}>
         <div style={{ maxWidth: "900px", margin: "auto", background: "white", padding: "30px", borderRadius: "10px" }}>
-          <h2 style={{ textAlign: "center", color: "#007f3f" }}>📝 XML Annotator</h2>
+          <h2 style={{ textAlign: "center", color: "#2f5d5b" }}>📝 XML Annotator</h2>
           <textarea
             value={xmlText}
             onChange={(e) => setXmlText(e.target.value)}
@@ -71,7 +71,7 @@ history.goBack();  // go back
             onClick={handleSave}
             style={{
               marginTop: "20px",
-              backgroundColor: "#007f3f",
+              backgroundColor: "#2f5d5b",
               color: "white",
               padding: "10px 20px",
               border: "none",

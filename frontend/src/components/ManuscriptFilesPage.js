@@ -119,7 +119,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
           style={{
             minHeight: "100vh",
             padding: "80px 20px",
-            background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
           }}>
         <h2 style={{color: "white", textAlign: "center"}}>📁 Manuscript Files</h2>
 
@@ -148,7 +148,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
             <button
                 onClick={handleUpload}
                 style={{
-                  backgroundColor: "#007f3f",
+                  backgroundColor: "#2f5d5b",
                   color: "white",
                   border: "none",
                   padding: "10px 16px",
@@ -163,7 +163,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
             </button>
               {uploadStatus && (
   <p style={{
-    color: uploadStatus.includes("✅") ? "#28a745" : "#dc3545",
+    color: uploadStatus.includes("✅") ? "#2f5d5b" : "#dc3545",
     marginTop: "10px",
     fontWeight: "bold",
   }}>
@@ -176,7 +176,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
                 style={{
                   marginLeft: "auto",
                   textDecoration: "none",
-                  color: "#007f3f",
+                  color: "#2f5d5b",
                   fontWeight: "bold",
                   fontSize: "16px",
                 }}
@@ -236,7 +236,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
                             setZoom(1);
                         }}
                                 style={{
-                                    backgroundColor: "#007f3f",
+                                    backgroundColor: "#2f5d5b",
                                     color: "white",
                                     border: "none",
                                     padding: "5px 10px",
@@ -291,7 +291,7 @@ const [uploadStatus, setUploadStatus] = useState("");  // ✅ NEW
                                 }
                             }}
                             style={{
-                                backgroundColor: "#007f3f",
+                                backgroundColor: "#2f5d5b",
                                 color: "white",
                                 border: "none",
                                 padding: "5px 10px",

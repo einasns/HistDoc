@@ -68,7 +68,7 @@ export default class HomePage extends Component {
                                     borderRadius: "12px",
                                     listStyle: "none",
                                     margin: 0,
-                                    minWidth: "180px",
+                                    minWidth: "190px",
                                     boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
                                     border: "1px solid rgba(255, 255, 255, 0.3)",
                                   }}
@@ -91,7 +91,7 @@ export default class HomePage extends Component {
                                         borderRadius: "8px",
                                       }}
                                   >
-                                    📝 Sign Up
+                                    📝Sign Up
                                   </Link>
                                 </li>
                                 <li>
@@ -112,7 +112,7 @@ export default class HomePage extends Component {
                                         borderRadius: "8px",
                                       }}
                                   >
-                                    🔐 Sign In
+                                    🔐Sign In
                                   </Link>
                                 </li>
                               </ul>
@@ -166,46 +166,71 @@ export default class HomePage extends Component {
                 </div>
                 {/* ***** Main Banner Area End ***** */}
                 {/* ***** About Area Starts ***** */}
-                <section className="section" id="about">
-                  <div className="container">
-                    <div className="row">
-                      <div className="col-lg-6">
-                        <div className="left-text-content">
-                          <div className="section-heading">
-                            <h6 style={{fontSize: "35px"}}>About Us</h6>
-                            <h2 style={{fontSize: "30px"}}>
-                              Preserving History with Technology
-                            </h2>
-                          </div>
-                          <p style={{fontSize: "20px"}}>
-                            Our platform connects users who want to upload historical documents with
-                            researchers who provide advanced algorithms to read and analyze these
-                            texts. Together, we are preserving history for future generations.
-                          </p>
-                        </div>
-                      </div>
-                      <div className="col-lg-6">
-                        <div className="right-text-content">
-                          <img
-                              src="static/images/Historical-Paper-Documents-Whats-Made-Them-Last-1536x861.jpg"
-                              alt="Historical Documents"
-                              style={{width: "100%", height: "auto"}}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                      <Link to="/DeveloperRequestForm">
-  <button style={{ marginTop: '20px', padding: '10px 20px', backgroundColor: '#007f3f', color: 'white', border: 'none', borderRadius: '5px' }}>
-    Request Developer Account
-  </button>
-</Link>
-                  </div>
+                  <section className="section" id="about" style={{ padding: "15px"}}>
+                      <div className="container" >
+                          <div className="row">
+                              <div className="col-lg-6">
+                                  <div className="left-text-content">
+                                      <div className="section-heading">
+                                          <h2 style={{fontSize: "30px"}}>
+                                              AI-Powered Platform for Historical Manuscripts
+                                          </h2>
 
 
-                </section>
+                                      </div>
+                                      <p style={{fontSize: "18px", lineHeight: "1.7", color: "#333"}}>
+                                      Our platform is designed to support the digital analysis of historical
+                                          manuscripts.
+                                          Researchers can upload images or archives, test AI models, and analyze results
+                                          side-by-side.
+                                          Developers can contribute models and receive feedback to improve their
+                                          solutions.
+                                          <br/><br/>
+                                          Developers must first submit a request to gain access. Once approved by an
+                                          administrator,
+                                          they can upload models, define parameters, and test them directly within the
+                                          system.
+                                      </p>
+
+                                      <Link to="/DeveloperRequestForm">
+                                          <button
+                                              style={{
+                                                  marginTop: "20px",
+                                                  padding: "12px 24px",
+                                                  backgroundColor: "#007f3f",
+                                                  color: "white",
+                                                  border: "none",
+                                                  borderRadius: "6px",
+                                                  fontSize: "16px",
+                                                  fontWeight: "bold",
+                                                  cursor: "pointer"
+                                              }}
+                                          >
+                                              Request Developer Access
+                                          </button>
+                                      </Link>
+
+                                      <p
+                                          style={{
+                                              marginTop: "40px",
+                                              fontSize: "16px",
+                                              fontStyle: "italic",
+                                              color: "#007f3f",
+                                          }}
+                                      >
+                                          This platform was built by Einas Nasasra and Haneen Abu Salook.
+                                      </p>
+                                  </div>
+                                  </div>
+
+                                  </div>
+                                                            </div>
+
+
+                  </section>
               </div>
             </div>
 
-    );
+  );
   }
-}
+  }

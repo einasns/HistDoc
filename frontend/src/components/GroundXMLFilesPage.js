@@ -93,17 +93,17 @@ formData.append("base_name", fileName);
       <div style={{
         minHeight: "100vh",
         padding: "80px 20px",
-        background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
       }}>
         <div style={{ maxWidth: "900px", margin: "auto", background: "#fff", padding: "30px", borderRadius: "10px" }}>
-          <h2 style={{ textAlign: "center", color: "#007f3f" }}>📄 XML Files in Folder</h2>
+          <h2 style={{ textAlign: "center", color: "#2f5d5b" }}>📄 XML Files in Folder</h2>
 
           <div style={{ margin: "20px 0", display: "flex", gap: "10px" }}>
             <input type="file" onChange={(e) => setNewFile(e.target.files[0])} />
             <button
               onClick={handleUpload}
               style={{
-                backgroundColor: "#007f3f",
+                backgroundColor: "#2f5d5b",
                 color: "white",
                 padding: "6px 14px",
                 border: "none",
@@ -129,12 +129,12 @@ formData.append("base_name", fileName);
                       boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                     }}
                 >
-                  <p style={{color: file.linked_image_name ? "#007f3f" : "red"}}>
+                  <p style={{color: file.linked_image_name ? "#2f5d5b" : "red"}}>
                     Linked image: {file.linked_image_name || "❌ Not linked"}
                   </p>
 
 
-                  <a href={file.file} target="_blank" rel="noreferrer" style={{color: "#007f3f", fontWeight: "bold"}}>
+                  <a href={file.file} target="_blank" rel="noreferrer" style={{color: "#2f5d5b", fontWeight: "bold"}}>
                     {file.file.split("/").pop()}
                   </a>
                   <div style={{display: "flex", gap: "10px"}}>
@@ -182,7 +182,7 @@ formData.append("base_name", fileName);
                     <Link
                         to={`/XMLAnnotatorPage?xml_id=${file.id}`}
                         style={{
-                          backgroundColor: "#007f3f",
+                          backgroundColor: "#2f5d5b",
                           color: "white",
                           padding: "5px 10px",
                           borderRadius: "5px",

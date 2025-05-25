@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
-function AdminDashboard() {
+function AdminDashboard({ history }) {
   const [requests, setRequests] = useState([]);
   const [error, setError] = useState('');
 
@@ -8,9 +9,9 @@ function AdminDashboard() {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
       const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === name + '=') {
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
           break;
         }
@@ -21,11 +22,8 @@ function AdminDashboard() {
 
   const fetchRequests = () => {
     fetch('/api/admin/developer-requests/', { credentials: 'include' })
-      .then((res) => {
-        if (res.ok) return res.json();
-        throw new Error('Failed to load requests');
-      })
-      .then((data) => setRequests(data))
+      .then((res) => res.ok ? res.json() : Promise.reject())
+      .then(setRequests)
       .catch(() => setError('❌ Failed to load requests'));
   };
 
@@ -44,34 +42,56 @@ function AdminDashboard() {
       credentials: 'include',
     })
       .then((res) => {
-        if (res.ok) {
-          fetchRequests();
-        } else {
-          setError(`❌ Failed to ${action} request`);
-        }
+        if (res.ok) fetchRequests();
+        else setError(`❌ Failed to ${action} request`);
       })
       .catch(() => setError(`❌ Error: Could not ${action} request`));
   };
 
+  const handleLogout = () => {
+    fetch('/logout/', {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': getCookie('csrftoken'),
+      },
+      credentials: 'include',
+    }).then(() => {
+      history.push('/login'); // ← using history instead of useNavigate
+    });
+  };
+
   return (
     <div style={{
-      maxWidth: '850px',
-      margin: '10px auto',
-      padding: '40px',
-      background: '#f9f9f9',
+      maxWidth: '900px',
+      margin: '40px auto',
+      padding: '30px',
+      background: '#f4f7f6',
       borderRadius: '16px',
-      boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+      boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
       fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
     }}>
-      <h2 style={{
-        textAlign: 'center',
-        marginBottom: '30px',
-        fontSize: '28px',
-        color: '#2c3e50'
-      }}>
-        Developer Requests
-      </h2>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h2 style={{ fontSize: '28px', color: '#2c3e50', marginBottom: '20px' }}>👤 Admin Dashboard</h2>
+        <button
+          onClick={handleLogout}
+          style={{
+            backgroundColor: '#e74c3c',
+            color: 'white',
+            border: 'none',
+            padding: '8px 16px',
+            borderRadius: '6px',
+            fontWeight: 'bold',
+            cursor: 'pointer'
+          }}
+        >
+          🔒 Logout
+        </button>
+      </div>
+
+      <h3 style={{ fontSize: '22px', marginBottom: '20px', color: '#34495e' }}>Developer Requests</h3>
+
       {error && <p style={{ color: '#e74c3c', textAlign: 'center', marginBottom: '20px' }}>{error}</p>}
+
       <ul style={{ listStyle: 'none', padding: 0 }}>
         {requests.map((req) => (
           <li key={req.id} style={{
@@ -79,19 +99,13 @@ function AdminDashboard() {
             marginBottom: '20px',
             background: 'white',
             borderRadius: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+            boxShadow: '0 4px 12px rgba(0,0,0,0.08)'
           }}>
             <div style={{ marginBottom: '10px' }}>
               <strong style={{ fontSize: '18px' }}>{req.full_name}</strong>
-              <span style={{
-                marginLeft: '10px',
-                fontSize: '14px',
-                color: '#7f8c8d'
-              }}>
-                ({req.email})
-              </span>
+              <span style={{ marginLeft: '10px', fontSize: '14px', color: '#7f8c8d' }}>({req.email})</span>
             </div>
-            <p style={{ marginBottom: '10px', color: '#555' }}>{req.reason}</p>
+            <p style={{ marginBottom: '10px', color: '#555' }}><strong>Reason:</strong> {req.reason}</p>
             <p style={{
               marginBottom: '15px',
               fontWeight: 'bold',
@@ -109,11 +123,8 @@ function AdminDashboard() {
                     color: 'white',
                     border: 'none',
                     borderRadius: '6px',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s',
+                    fontWeight: 'bold'
                   }}
-                  onMouseOver={(e) => e.target.style.backgroundColor = '#219150'}
-                  onMouseOut={(e) => e.target.style.backgroundColor = '#27ae60'}
                   onClick={() => handleAction(req.id, 'approve')}
                 >
                   ✅ Approve
@@ -122,15 +133,12 @@ function AdminDashboard() {
                   style={{
                     flex: 1,
                     padding: '10px',
-                    backgroundColor: '#e74c3c',
+                    backgroundColor: '#c0392b',
                     color: 'white',
                     border: 'none',
                     borderRadius: '6px',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s',
+                    fontWeight: 'bold'
                   }}
-                  onMouseOver={(e) => e.target.style.backgroundColor = '#c0392b'}
-                  onMouseOut={(e) => e.target.style.backgroundColor = '#e74c3c'}
                   onClick={() => handleAction(req.id, 'reject')}
                 >
                   ❌ Reject
@@ -144,4 +152,4 @@ function AdminDashboard() {
   );
 }
 
-export default AdminDashboard;
+export default withRouter(AdminDashboard); // wraps the component to inject `history`

@@ -24,7 +24,7 @@ export default class SortedModelsPage extends Component {
           style={{
             minHeight: "100vh",
             paddingTop: "100px",
-            background: "linear-gradient(to bottom right, #007f3f, #e6ffe6)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -65,7 +65,7 @@ export default class SortedModelsPage extends Component {
               <h3
                 style={{
                   marginBottom: "10px",
-                  color: "#007f3f",
+                  color: "#2f5d5b",
                   fontSize: "20px",
                 }}
               >

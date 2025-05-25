@@ -28,6 +28,8 @@ export default class HomepageResearcher extends Component {
       description: "",
       message: "",
         parameters: [],
+        category: "binarization",
+
 
     };
   }
@@ -68,6 +70,8 @@ removeParameter = (index) => {
     formData.append("file", file);
     formData.append("name", name);
     formData.append("description", description);
+    formData.append("category", this.state.category);
+
     formData.append("parameters", JSON.stringify(this.state.parameters));  // 🆕
 
 
@@ -146,7 +150,7 @@ if (!isValid) {
         <div
           style={{
             minHeight: "100vh",
-            background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+         background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             padding: "90px 2rem 2rem",
             display: "flex",
             justifyContent: "center",
@@ -163,7 +167,7 @@ if (!isValid) {
                     boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                 }}
             >
-                <h2 style={{textAlign: "center", color: "#007f3f", fontFamily: "Segoe UI", marginBottom: "20px"}}>
+                <h2 style={{textAlign: "center", color: "#2f5d5b", fontFamily: "Segoe UI", marginBottom: "20px"}}>
                     Welcome Developer
                 </h2>
 
@@ -197,6 +201,26 @@ if (!isValid) {
                             minHeight: "100px"
                         }}
                     ></textarea>
+                    <div style={{marginBottom: "15px"}}>
+                        <label style={{fontWeight: "bold"}}>Model Category:</label>
+                        <select
+                            name="category"
+                            value={this.state.category}
+                            onChange={this.handleInputChange}
+                            style={{
+                                width: "100%",
+                                padding: "10px",
+                                borderRadius: "8px",
+                                border: "1px solid #ccc"
+                            }}
+                        >
+                            <option value="binarization">binarization</option>
+                            <option value="Page Layout">Page Layout</option>
+                            <option value="HTR">HTR (Handwritten Text Recognition)</option>
+                            <option value="Date & Style Classification">Date & Style Classification</option>
+                        </select>
+                    </div>
+
                 </div>
                 <h3 style={{color: "#333"}}>⚙️ Model Parameters</h3>
                 {this.state.parameters.map((param, index) => (
@@ -266,7 +290,7 @@ if (!isValid) {
                     onClick={this.addParameter}
                     style={{
                         padding: "8px 15px",
-                        backgroundColor: "#007f3f",
+                        backgroundColor: "#2f5d5b",
                         color: "white",
                         border: "none",
                         borderRadius: "6px",
@@ -283,7 +307,7 @@ if (!isValid) {
                         disabled={!file}
                         style={{
                             padding: "10px 15px",
-                            backgroundColor: "#007f3f",
+                            backgroundColor: "#2f5d5b",
                             color: "white",
                             borderRadius: "8px",
                             border: "none",
@@ -310,7 +334,7 @@ if (!isValid) {
                                 boxShadow: "0 2px 5px rgba(0,0,0,0.05)",
                             }}
                         >
-                            <p style={{margin: 0, fontWeight: "bold", color: "#007f3f", fontSize: "16px"}}>
+                            <p style={{margin: 0, fontWeight: "bold", color: "#2f5d5b", fontSize: "16px"}}>
                                 📝 {model.name}
                             </p>
                             {model.description && (
@@ -325,7 +349,7 @@ if (!isValid) {
                         marginTop: "10px",
                         display: "inline-block",
                         padding: "6px 12px",
-                        backgroundColor: "#007f3f",
+                        backgroundColor: "#2f5d5b",
                         color: "white",
                         border: "none",
                         borderRadius: "5px",

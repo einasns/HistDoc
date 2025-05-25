@@ -240,6 +240,7 @@ class UploadDeveloperFileView(APIView):
         name = request.data.get('name')
         description = request.data.get('description')
         parameters_raw = request.data.get('parameters')
+        category = request.data.get('category')
 
         print("🟢 Incoming upload:")
         print("Name:", name)
@@ -255,7 +256,9 @@ class UploadDeveloperFileView(APIView):
             user=request.user,
             file=file,
             name=name,
-            description=description
+            description=description,
+            category = category
+
         )
 
         # Parse and store parameters
@@ -267,7 +270,8 @@ class UploadDeveloperFileView(APIView):
                     name=param.get("name", "").strip(),
                     param_type=param.get("type", "").strip(),
                     choices=[choice.strip() for choice in param.get("choices", "").split(",") if choice.strip()] or None,
-                    default=param.get("default", "").strip()
+                    default=param.get("default", "").strip(),
+                    description = param.get("description", "").strip()
                 )
         except Exception as e:
             dev_file.delete()  # rollback if params fail

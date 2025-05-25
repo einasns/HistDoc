@@ -128,7 +128,7 @@ export default class Register extends Component {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+              background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             }}
         >
           <link
@@ -197,12 +197,12 @@ export default class Register extends Component {
                                   WebkitBackdropFilter: "blur(10px)", // Safari support
                                   padding: "10px 15px",
                                   fontFamily: "'Roboto', sans-serif",
-                                  color: "#007f3f",
+                                  color: "#2f5d5b",
                                   textDecoration: "none",
                                   borderRadius: "8px",
                                 }}
                             >
-                              📝 Sign Up
+                              📝Sign Up
                             </Link>
                           </li>
                           <li>
@@ -218,12 +218,12 @@ export default class Register extends Component {
                                   backdropFilter: "blur(10px)", // frost effect
                                   WebkitBackdropFilter: "blur(10px)", // Safari support
                                   fontFamily: "'Roboto', sans-serif",
-                                  color: "#007f3f",
+                                  color: "#2f5d5b",
                                   textDecoration: "none",
                                   borderRadius: "8px",
                                 }}
                             >
-                              🔐 Sign In
+                              🔐Sign In
                             </Link>
                           </li>
                         </ul>
@@ -255,7 +255,7 @@ export default class Register extends Component {
               <h2
                   className="fw-bold mb-4"
                   style={{
-                    color: "#007f3f",
+                    color: "#2f5d5b",
                     fontFamily: "'Open Sans', 'Roboto', sans-serif",
 
                   }}
@@ -343,7 +343,7 @@ export default class Register extends Component {
                   size="md"
                   onClick={this.handleRegisterButtonPressed}
                   style={{
-                    backgroundColor: "#007f3f",
+                    backgroundColor: "#2f5d5b",
                     color: "white",
                     fontWeight: "bold",
                     height: "45px",
@@ -356,7 +356,7 @@ export default class Register extends Component {
               {/* Link to Log In */}
               <p style={{fontSize: "16px", marginTop: "5px"}}>
                 Already have an account?{" "}
-                <Link to="/LogIn" style={{color: "#007f3f", fontWeight: "bold"}}>
+                <Link to="/LogIn" style={{color: "#2f5d5b", fontWeight: "bold"}}>
                   Log In
                 </Link>
               </p>

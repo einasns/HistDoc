@@ -148,7 +148,7 @@ const handleCreateWithZip = async () => {
               style={{
                   minHeight: "100vh",
                   padding: "80px 20px",
-                  background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
               }}
           >
               <div
@@ -161,7 +161,7 @@ const handleCreateWithZip = async () => {
                       boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
                   }}
               >
-                  <h2 style={{textAlign: "center", color: "#007f3f"}}>📁 My Manuscripts</h2>
+                  <h2 style={{textAlign: "center", color: "#2f5d5b"}}>📁 My Manuscripts</h2>
 
                   <div style={{display: "flex", gap: "10px", marginBottom: "20px"}}>
                       <input
@@ -174,7 +174,7 @@ const handleCreateWithZip = async () => {
                       <button
                           onClick={handleCreateFolder}
                           style={{
-                              backgroundColor: "#007f3f",
+                              backgroundColor: "#2f5d5b",
                               color: "white",
                               border: "none",
                               padding: "8px 12px",
@@ -196,7 +196,7 @@ const handleCreateWithZip = async () => {
                           textAlign: "left",
                       }}
                   >
-                      <h3 style={{color: "#007f3f", marginBottom: "10px"}}>
+                      <h3 style={{color: "#2f5d5b", marginBottom: "10px"}}>
                           📦 Upload Image Archive
                       </h3>
                       <p style={{fontSize: "15px", color: "#333", marginBottom: "15px"}}>
@@ -221,7 +221,7 @@ const handleCreateWithZip = async () => {
                               onClick={handleCreateWithZip}
                               disabled={!newFolderName.trim() || !zipFile}
                               style={{
-                                  backgroundColor: !newFolderName.trim() || !zipFile ? "#ccc" : "#007f3f",
+                                  backgroundColor: !newFolderName.trim() || !zipFile ? "#ccc" : "#2f5d5b",
                                   color: "white",
                                   border: "none",
                                   padding: "10px 16px",
@@ -251,7 +251,7 @@ const handleCreateWithZip = async () => {
                       >
                           <Link
                               to={`/ManuscriptFilesPage?id=${m.id}`}
-                              style={{textDecoration: "none", color: "#007f3f", fontWeight: "bold"}}
+                              style={{textDecoration: "none", color: "#2f5d5b", fontWeight: "bold"}}
                           >
                               <FaFolderOpen style={{marginRight: "8px"}}/> {m.name}
                           </Link>
@@ -270,18 +270,7 @@ const handleCreateWithZip = async () => {
                               >
                                   ✏ Rename
                               </button>
-                              <button
-                                  onClick={() => handleDelete(m.id)}
-                                  style={{
-                                      backgroundColor: "#ff4d4d",
-                                      color: "white",
-                                      border: "none",
-                                      borderRadius: "5px",
-                                      padding: "5px 10px",
-                                  }}
-                              >
-                                  <FaTrash/>
-                              </button>
+
                               <Link
                                   to={`/GroundFoldersPage?id=${m.id}`}
                                   style={{
@@ -297,7 +286,7 @@ const handleCreateWithZip = async () => {
                               <a
                                   href={`http://127.0.0.1:8000/api/manuscripts/${m.id}/download/`}
                                   style={{
-                                      backgroundColor: "#007f3f",
+                                      backgroundColor: "#2f5d5b",
                                       color: "white",
                                       padding: "5px 10px",
                                       borderRadius: "5px",
@@ -307,7 +296,18 @@ const handleCreateWithZip = async () => {
                               >
                                   ⬇ Download Folder
                               </a>
-
+                              <button
+                                  onClick={() => handleDelete(m.id)}
+                                  style={{
+                                      backgroundColor: "#ff4d4d",
+                                      color: "white",
+                                      border: "none",
+                                      borderRadius: "5px",
+                                      padding: "5px 10px",
+                                  }}
+                              >
+                                  <FaTrash/>
+                              </button>
                           </div>
 
                       </div>

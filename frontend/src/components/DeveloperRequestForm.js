@@ -91,7 +91,7 @@ function DeveloperRequestForm() {
                 outline: 'none',
                 transition: 'border-color 0.3s',
               }}
-              onFocus={(e) => e.target.style.borderColor = '#4CAF50'}
+              onFocus={(e) => e.target.style.borderColor = '#2f5d5b'}
               onBlur={(e) => e.target.style.borderColor = '#ddd'}
           />
           <input
@@ -110,7 +110,7 @@ function DeveloperRequestForm() {
                 outline: 'none',
                 transition: 'border-color 0.3s',
               }}
-              onFocus={(e) => e.target.style.borderColor = '#4CAF50'}
+              onFocus={(e) => e.target.style.borderColor = '#2f5d5b'}
               onBlur={(e) => e.target.style.borderColor = '#ddd'}
           />
           <textarea
@@ -129,7 +129,7 @@ function DeveloperRequestForm() {
                 outline: 'none',
                 transition: 'border-color 0.3s',
               }}
-              onFocus={(e) => e.target.style.borderColor = '#4CAF50'}
+              onFocus={(e) => e.target.style.borderColor = '#2f5d5b'}
               onBlur={(e) => e.target.style.borderColor = '#ddd'}
           />
           <button
@@ -137,7 +137,7 @@ function DeveloperRequestForm() {
               style={{
                 width: '100%',
                 padding: '14px',
-                backgroundColor: '#4CAF50',
+                backgroundColor: '#2f5d5b',
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
@@ -145,8 +145,8 @@ function DeveloperRequestForm() {
                 cursor: 'pointer',
                 transition: 'background-color 0.3s',
               }}
-              onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
-              onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#2f5d5b'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#2f5d5b'}
           >
             Submit Request
           </button>
@@ -156,7 +156,7 @@ function DeveloperRequestForm() {
               textAlign: 'center',
               marginTop: '20px',
               fontWeight: 'bold',
-              color: status.includes('✅') ? '#2ecc71' : '#e74c3c',
+              color: status.includes('✅') ? '#2f5d5b' : '#e74c3c',
             }}>
               {status}
             </p>

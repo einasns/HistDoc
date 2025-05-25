@@ -70,7 +70,7 @@ const modelId = this.props.match.params.modelId;
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             padding: "2rem",
           }}
         >
@@ -85,7 +85,7 @@ const modelId = this.props.match.params.modelId;
               boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
             }}
           >
-            <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#007f3f" }}>
+            <h2 style={{ textAlign: "center", marginBottom: "20px", color: "#2f5d5b" }}>
               Leave Feedback for a better model
             </h2>
 
@@ -135,7 +135,7 @@ const modelId = this.props.match.params.modelId;
                 style={{
                   width: "100%",
                   padding: "10px",
-                  backgroundColor: "#007f3f",
+                  backgroundColor: "#2f5d5b",
                   color: "white",
                   border: "none",
                   borderRadius: "5px",

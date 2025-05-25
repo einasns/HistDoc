@@ -79,10 +79,10 @@ useEffect(() => {
       <div style={{
         minHeight: "100vh",
         padding: "80px 20px",
-        background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
       }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", background: "white", padding: "30px", borderRadius: "10px" }}>
-          <h2 style={{ color: "#007f3f", textAlign: "center" }}>🗂 Ground Folders</h2>
+          <h2 style={{ color: "#2f5d5b", textAlign: "center" }}>🗂 Ground Folders</h2>
 
           <div style={{ display: "flex", marginBottom: "20px" }}>
             <input
@@ -94,7 +94,7 @@ useEffect(() => {
             />
             <button
               onClick={handleCreate}
-              style={{ backgroundColor: "#007f3f", color: "white", border: "none", padding: "8px 12px", borderRadius: "5px", marginLeft: "10px" }}
+              style={{ backgroundColor: "#2f5d5b", color: "white", border: "none", padding: "8px 12px", borderRadius: "5px", marginLeft: "10px" }}
             >
               <FaFolderPlus />
             </button>
@@ -111,7 +111,7 @@ useEffect(() => {
                 marginBottom: "10px",
               }}>
                 <Link to={`/GroundXMLFilesPage?folder_id=${folder.id}`}
-                      style={{color: "#007f3f", fontWeight: "bold", textDecoration: "none"}}>
+                      style={{color: "#2f5d5b", fontWeight: "bold", textDecoration: "none"}}>
                   <FaFolderOpen style={{marginRight: "8px"}}/>
                   {folder.name}
                 </Link>

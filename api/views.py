@@ -1461,6 +1461,9 @@ from api.models import Manuscript, ManuscriptFile
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def upload_folder_view(request, manuscript_id):
+    """
+         upload a folder in format zip or rar you need to import the rarfile to fun
+      """
     try:
         manuscript = Manuscript.objects.get(id=manuscript_id, user=request.user)
     except Manuscript.DoesNotExist:
@@ -1516,6 +1519,9 @@ import zipfile, os, io
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def download_manuscript_zip(request, manuscript_id):
+    """
+         download the folder so all the image be in one file in format zip
+      """
     manuscript = get_object_or_404(Manuscript, id=manuscript_id, user=request.user)
     files = manuscript.files.all()
 

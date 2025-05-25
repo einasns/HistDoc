@@ -117,7 +117,7 @@ class LogIn extends Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                background: "linear-gradient(to bottom right, #007f3f, #8b8b8b)",
+    background: "linear-gradient(to bottom right, #2f5d5b, #5a7d7d, #7f9795)",
             }}
         >
             <link
@@ -186,12 +186,12 @@ class LogIn extends Component {
                                                         WebkitBackdropFilter: "blur(10px)",
                                                         padding: "10px 15px",
                                                         fontFamily: "'Roboto', sans-serif",
-                                                        color: "#007f3f",
+color: "#2f5d5b",
                                                         textDecoration: "none",
                                                         borderRadius: "8px",
                                                     }}
                                                 >
-                                                    📝 Sign Up
+                                                    📝Sign Up
                                                 </Link>
                                             </li>
                                             <li>
@@ -207,12 +207,11 @@ class LogIn extends Component {
                                                         backdropFilter: "blur(10px)",
                                                         WebkitBackdropFilter: "blur(10px)",
                                                         fontFamily: "'Roboto', sans-serif",
-                                                        color: "#007f3f",
-                                                        textDecoration: "none",
+color: "#2f5d5b",                                                        textDecoration: "none",
                                                         borderRadius: "8px",
                                                     }}
                                                 >
-                                                    🔐 Sign In
+                                                    🔐Sign In
                                                 </Link>
                                             </li>
                                         </ul>
@@ -243,8 +242,8 @@ class LogIn extends Component {
                     <h2
                         className="fw-bold mb-4"
                         style={{
-                            color: "#007f3f",
-                    fontFamily: "'Open Sans', 'Roboto', sans-serif",
+color: "#2f5d5b",
+                            fontFamily: "'Open Sans', 'Roboto', sans-serif",
                         }}
                     >
                         Log In Now
@@ -252,7 +251,7 @@ class LogIn extends Component {
 
                     {/* Success or Error Message */}
                     {message && (
-                        <p style={{color: "#007f3f", marginBottom: "20px"}}>
+                        <p style={{color: "#2f5d5b", marginBottom: "20px"}}>
                             {message}
                         </p>
                     )}
@@ -288,7 +287,7 @@ class LogIn extends Component {
                         size="md"
                         onClick={(e) => this.handleLoginButtonPressed(e)}
                         style={{
-                            backgroundColor: "#007f3f",
+                            backgroundColor: "#2f5d5b",
                             color: "white",
                             fontWeight: "bold",
                             fontSize: "19px",
@@ -298,10 +297,10 @@ class LogIn extends Component {
                             transition: "background-color 0.3s ease",
                         }}
                         onMouseOver={(e) => {
-                            e.target.style.backgroundColor = "#005f30";
+                            e.target.style.backgroundColor =  "#2f5d5b";
                         }}
                         onMouseOut={(e) => {
-                            e.target.style.backgroundColor = "#007f3f";
+                            e.target.style.backgroundColor = "#2f5d5b";
                         }}
                     >
                         Log In
@@ -313,7 +312,7 @@ class LogIn extends Component {
                         Don't have an account?{" "}
                         <Link
                             to="/Register"
-                            style={{color: "#007f3f", fontWeight: "bold"}}
+                            style={{color: "#2f5d5b" , fontWeight: "bold"}}
                         >
                             Sign Up
                         </Link>

@@ -59,18 +59,3 @@ python manage.py runserver
 
 - **Einas Nsasra**
 - **Haneen Abu Salook**
-
-
-نسخ
-تحرير
-
-نسخ
-تحرير
-
-
-
-نسخ
-تحرير
-
-نسخ
-تحرير

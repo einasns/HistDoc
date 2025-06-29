@@ -1,6 +1,6 @@
 # HistDoc Platform
 
-HistDoc is a web-based platform designed to support the digitization, management, and transcription of historical Arabic and Hebrew manuscripts. It integrates user-friendly interfaces with AI-powered tools to assist researchers, developers, and administrators in preserving cultural heritage.
+HistDoc is a web-based platform designed to support the digitization, management, and transcription of historical Arabic and Hebrew manuscripts. It integrates user-friendly interfaces with tools to assist researchers, developers, and administrators in preserving cultural heritage.
 
 ##  Features
 
